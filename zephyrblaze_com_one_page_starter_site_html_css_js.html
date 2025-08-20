@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zephyr Blaze — Physics • Space • Making</title>
+  <meta name="description" content="Saksham Yadav’s lab-notebook on physics, radio astronomy, astrophotography, rockets, music, and the long road to Alpha Centauri." />
+  <meta name="theme-color" content="#0b1021" />
+  <meta property="og:title" content="Zephyr Blaze — Physics • Space • Making" />
+  <meta property="og:description" content="Experiments, how‑tos, progress logs, and star‑stuff." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zephyrblaze.com" />
+  <meta property="og:image" content="/og-image.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23fff' d='M128 10 98 138l60-54-30 126 60-96-96 30z'/%3E%3C/svg%3E"/>
+  <style>
+    :root{
+      --bg:#0b1021; --bg-soft:#121833; --fg:#e9ecf6; --muted:#aab2d6; --accent:#6bd0ff; --accent-2:#9a7bff; --card:#101528; --border:#273055;
+      --shadow:0 6px 20px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(120%) blur(8px);background:linear-gradient(180deg, rgba(11,16,33,.85), rgba(11,16,33,.65));border-bottom:1px solid var(--border);z-index:20}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.4px}
+    .logo{width:28px;height:28px;border-radius:10px;background:radial-gradient(120px 60px at 30% 30%, var(--accent), transparent),radial-gradient(100px 60px at 70% 70%, var(--accent-2), transparent), #0e1530;border:1px solid var(--border);box-shadow:var(--shadow)}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    .mobile-menu{display:none}
+
+    .hero{padding:70px 0 36px;border-bottom:1px solid var(--border);background: radial-gradient(80% 80% at 50% -10%, rgba(155,123,255,.18), transparent);}
+    .hero h1{font-size:clamp(28px, 5vw, 52px);line-height:1.05;margin:0 0 10px}
+    .hero p{max-width:800px;color:var(--muted);font-size:clamp(15px, 2.5vw, 18px)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:100px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.0));font-size:12px;color:var(--muted)}
+
+    section{padding:42px 0;border-bottom:1px solid var(--border)}
+    h2{font-size:24px;margin:0 0 12px}
+    .grid{display:grid;gap:18px}
+    @media(min-width:720px){.grid-cols-2{grid-template-columns:1fr 1fr}.grid-cols-3{grid-template-columns:repeat(3,1fr)}}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px)}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .meta{font-size:12px;color:var(--muted)}
+    .tag{display:inline-block;margin-right:8px;margin-top:6px;font-size:11px;padding:4px 8px;border-radius:999px;background:#0e1734;border:1px solid var(--border);color:var(--muted)}
+
+    .flex{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .row{display:flex;gap:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));color:var(--fg);text-decoration:none}
+    .btn:hover{transform:translateY(-1px)}
+    .ghost{background:transparent}
+
+    footer{padding:30px 0;color:var(--muted)}
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; padding:.1rem .35rem; border:1px solid var(--border); border-bottom-width:2px; border-radius:6px; background:#0b132b; color:#dce1ff}
+
+    /* small toc on mobile */
+    @media(max-width:720px){
+      .desktop-nav{display:none}
+      .mobile-menu{display:flex;align-items:center;gap:10px}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Saksham Yadav",
+    "url": "https://zephyrblaze.com",
+    "sameAs": [
+      "https://github.com/your-handle",
+      "https://www.youtube.com/@your-channel"
+    ],
+    "jobTitle": "Student • Maker • Astrophotography" 
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><div class="logo"></div> <span>Zephyr Blaze</span></div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#posts">Blog</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#now">Now</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu">
+        <a class="btn ghost" id="menuBtn">Menu</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="pill">⚡ Personal lab notebook • 🛰️ Space • 🔭 Astrophotography • 📡 Radio</span>
+        <h1>Hi, I’m Saksham — I build things for the sky and write about the journey to <em>Alpha Centauri</em>.</h1>
+        <p>
+          This is where I publish experiments, how‑tos, and progress logs on physics, rockets, radio astronomy,
+          astrophotography, and music. Everything is work‑in‑progress — documented so we can learn in public.
+        </p>
+        <div class="row" style="margin-top:14px">
+          <a class="btn" href="#posts">Read the blog</a>
+          <a class="btn ghost" href="#projects">See projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="posts">
+      <div class="container">
+        <h2>Latest posts</h2>
+        <p class="meta">Tutorials • Logs • Ideas — <span id="postCount"></span></p>
+        <div class="grid grid-cols-3" id="postGrid"></div>
+        <div style="margin-top:14px" class="row">
+          <a class="btn" href="#" onclick="filterPosts('all');return false;">All</a>
+          <a class="btn ghost" href="#" onclick="filterPosts('astrophotography');return false;">Astrophotography</a>
+          <a class="btn ghost" href="#" onclick="filterPosts('radio');return false;">Radio Astronomy</a>
+          <a class="btn ghost" href="#" onclick="filterPosts('rockets');return false;">Rockets</a>
+          <a class="btn ghost" href="#" onclick="filterPosts('physics');return false;">Physics</a>
+          <a class="btn ghost" href="#" onclick="filterPosts('music');return false;">Music</a>
+          <a class="btn ghost" href="#" onclick="filterPosts('alpha');return false;">Alpha Centauri</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="grid grid-cols-2" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <section id="now">
+      <div class="container">
+        <h2>Now</h2>
+        <div class="card">
+          <p class="meta">Updated <span id="nowDate"></span></p>
+          <ul>
+            <li>Building a star tracker + equatorial mount for my Canon 1500D.</li>
+            <li>Experimenting with a helical feed on a 90 cm dish for L‑band sats.</li>
+            <li>Learning Japanese (JLPT N5) and prepping for EJU PCM.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About</h2>
+        <div class="grid grid-cols-2">
+          <div class="card">
+            <h3>Who am I?</h3>
+            <p>
+              I’m a student and maker from India who loves space, physics, radio, and music. This site is my open notebook: I publish raw logs and polished guides so others can follow along — or improve on what I tried.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Site goals</h3>
+            <ul>
+              <li>Share experiments, failures, and working designs.</li>
+              <li>Write accessible how‑to guides for beginners.</li>
+              <li>Document my long‑term project: a path to Alpha Centauri (in spirit and science!).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="grid grid-cols-3">
+          <div class="card">
+            <h3>Email</h3>
+            <p><a href="mailto:hello@zephyrblaze.com">hello@zephyrblaze.com</a></p>
+          </div>
+          <div class="card">
+            <h3>GitHub</h3>
+            <p><a href="https://github.com/your-handle" target="_blank" rel="noopener">github.com/your-handle</a></p>
+          </div>
+          <div class="card">
+            <h3>YouTube</h3>
+            <p><a href="https://www.youtube.com/@your-channel" target="_blank" rel="noopener">@your-channel</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row" style="justify-content:space-between">
+        <span>© <span id="year"></span> Zephyr Blaze • Built with vanilla HTML/CSS/JS</span>
+        <span>RSS: <a href="#" onclick="downloadRSS();return false;">/feed.xml</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <template id="postCard">
+    <article class="card">
+      <h3></h3>
+      <p class="meta"></p>
+      <p class="excerpt"></p>
+      <div class="flex tags"></div>
+    </article>
+  </template>
+
+  <template id="projectCard">
+    <article class="card">
+      <h3></h3>
+      <p class="meta"></p>
+      <p class="excerpt"></p>
+      <div class="flex tags"></div>
+      <div class="row" style="margin-top:8px">
+        <a class="btn" target="_blank">View</a>
+        <a class="btn ghost" target="_blank">Repo</a>
+      </div>
+    </article>
+  </template>
+
+  <script>
+    // --- Content (edit these arrays to publish!) ---
+    const posts = [
+      { title: "Imaging Alpha Centauri A/B with a 114mm Newtonian", date: "2025-08-14", excerpt: "Setup, alignment, exposure times, stacking in Siril, and lessons learned.", tags:["astrophotography","alpha"], url: "#" },
+      { title: "Building a helical L‑band feed for a 90 cm dish", date: "2025-07-08", excerpt: "Design notes, matching, and first signals from weather sats.", tags:["radio","how‑to"], url: "#" },
+      { title: "DIY star tracker: from idea to first light", date: "2025-07-17", excerpt: "Designing the worm gear, stepper control, and polar alignment.", tags:["astrophotography","how‑to"], url: "#" },
+      { title: "Rocket micro-launches: altitude logging on a budget", date: "2025-06-02", excerpt: "ESP32 + BMP390 flight computer and recovery.", tags:["rockets","electronics"], url: "#" },
+      { title: "Radio astronomy 101: first hydrogen line sweep", date: "2025-05-20", excerpt: "SDR setup, calibration, and your first 1420 MHz spectrum.", tags:["radio","physics"], url: "#" },
+      { title: "Music for midnight processing", date: "2025-04-28", excerpt: "An ambient playlist that kept me sane while stacking.", tags:["music"], url: "#" }
+    ];
+
+    const projects = [
+      { title: "Star Tracker + EQ Mount", when:"2025", excerpt:"3D‑printed, stepper‑driven tracker for long exposures.", tags:["astrophotography"], demo:"#", repo:"#" },
+      { title: "L‑Band Dish + Helical Feed", when:"2025", excerpt:"Receiving GOES/meteor signals; matching and LNAs.", tags:["radio"], demo:"#", repo:"#" },
+      { title: "Intervalometer Web UI (Raspberry Pi)", when:"2025", excerpt:"Control Canon 1500D exposures over Wi‑Fi.", tags:["web","camera"], demo:"#", repo:"#" },
+      { title: "Hydrogen Line Receiver", when:"2025", excerpt:"1420 MHz front‑end and SDR processing.", tags:["radio","physics"], demo:"#", repo:"#" }
+    ];
+
+    // --- Renderers ---
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    function renderPosts(list){
+      const grid = document.getElementById('postGrid');
+      grid.innerHTML = '';
+      const tpl = document.getElementById('postCard');
+      list.sort((a,b)=> new Date(b.date) - new Date(a.date));
+      list.forEach(p=>{
+        const node = tpl.content.cloneNode(true);
+        node.querySelector('h3').textContent = p.title;
+        node.querySelector('.meta').textContent = new Date(p.date).toLocaleDateString();
+        node.querySelector('.excerpt').textContent = p.excerpt;
+        const tagWrap = node.querySelector('.tags');
+        (p.tags||[]).forEach(t=>{ const span = document.createElement('span'); span.className='tag'; span.textContent = t; tagWrap.appendChild(span); });
+        node.querySelector('article').addEventListener('click', ()=>{ if(p.url && p.url!=='#') location.href = p.url; });
+        grid.appendChild(node);
+      });
+      document.getElementById('postCount').textContent = `${list.length} posts`;
+    }
+
+    function filterPosts(tag){
+      if(tag==='all') return renderPosts(posts);
+      renderPosts(posts.filter(p=>p.tags.includes(tag)));
+    }
+
+    function renderProjects(){
+      const grid = document.getElementById('projectsGrid');
+      const tpl = document.getElementById('projectCard');
+      projects.forEach(p=>{
+        const node = tpl.content.cloneNode(true);
+        node.querySelector('h3').textContent = p.title;
+        node.querySelector('.meta').textContent = p.when;
+        node.querySelector('.excerpt').textContent = p.excerpt;
+        const tagWrap = node.querySelector('.tags');
+        (p.tags||[]).forEach(t=>{ const span = document.createElement('span'); span.className='tag'; span.textContent = t; tagWrap.appendChild(span); });
+        const links = node.querySelectorAll('a');
+        links[0].href = p.demo || '#';
+        links[1].href = p.repo || '#';
+        grid.appendChild(node);
+      });
+    }
+
+    function downloadRSS(){
+      const items = posts.sort((a,b)=> new Date(b.date) - new Date(a.date)).map(p=>`\n  <item>\n    <title>${escapeXML(p.title)}</title>\n    <link>https://zephyrblaze.com${p.url === '#' ? '' : p.url}</link>\n    <pubDate>${new Date(p.date).toUTCString()}</pubDate>\n    <description>${escapeXML(p.excerpt)}</description>\n  </item>`).join('');
+      const rss = `<?xml version="1.0"?>\n<rss version="2.0">\n<channel>\n  <title>Zephyr Blaze</title>\n  <link>https://zephyrblaze.com</link>\n  <description>Physics • Space • Making</description>${items}\n</channel>\n</rss>`;
+      const blob = new Blob([rss], {type:'application/rss+xml'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'feed.xml';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function escapeXML(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+    // State
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('nowDate').textContent = new Date().toLocaleDateString();
+    renderPosts(posts);
+    renderProjects();
+
+    // Mobile menu quick‑scroll
+    document.getElementById('menuBtn').addEventListener('click', ()=>{
+      const items = ['#posts','#projects','#now','#about','#contact'];
+      const menu = document.createElement('div');
+      menu.style.position='fixed'; menu.style.inset='0'; menu.style.background='rgba(7,10,22,.9)'; menu.style.backdropFilter='blur(6px)'; menu.style.padding='20px'; menu.style.zIndex=50;
+      menu.innerHTML = `<div class="card" style="max-width:540px;margin:40px auto">\n<h3>Navigate</h3>\n<div class="flex" id="mwrap"></div>\n<a class="btn ghost" id="close">Close</a>\n</div>`;
+      document.body.appendChild(menu);
+      const wrap = menu.querySelector('#mwrap');
+      items.forEach(i=>{ const a=document.createElement('a'); a.className='btn'; a.textContent=i.replace('#',''); a.href=i; wrap.appendChild(a); });
+      menu.querySelector('#close').onclick=()=>menu.remove();
+    });
+  </script>
+</body>
+</html>
